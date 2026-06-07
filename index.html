@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tienda de zapatos premium. Descubre nuestra nueva colección de calzado para hombre y mujer." />
+  <meta property="og:title" content="STEPZ — Zapatos Premium" />
+  <meta property="og:description" content="Calzado de calidad, estilo y confort." />
+  <title>SIGMA — Zapatos Premium</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Favicon emoji -->
+  <link rel="icon" href="https://fav.farm/👟" />
+</head>
+<body>
+
+  <!-- ================================================
+       NAVBAR
+  ================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__container">
+
+      <!-- Logo -->
+      <a href="#" class="navbar__logo">
+        SIGM<span>A</span>
+      </a>
+
+      <!-- Nav Links (Desktop) -->
+      <nav class="navbar__links" id="navLinks">
+        <a href="#hero"       class="navbar__link">Inicio</a>
+        <a href="#productos"  class="navbar__link">Hombres</a>
+        <a href="#productos"  class="navbar__link">Mujeres</a>
+        <a href="#productos"  class="navbar__link">Colecciones</a>
+        <a href="#beneficios" class="navbar__link">Nosotros</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="navbar__actions">
+        <!-- Search -->
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-box__input"
+            placeholder="Buscar zapatos..."
+            aria-label="Buscar productos"
+          />
+          <button class="search-box__btn" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Cart Button -->
+        <button class="cart-btn" id="cartBtn" aria-label="Carrito de compras">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-btn__badge" id="cartCount">0</span>
+        </button>
+
+        <!-- Mobile Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-dropdown__header">
+        <h3>Mi Carrito</h3>
+        <button class="cart-dropdown__close" id="cartClose">✕</button>
+      </div>
+      <div class="cart-dropdown__items" id="cartItems">
+        <div class="cart-empty">
+          <span>🛒</span>
+          <p>Tu carrito está vacío</p>
+        </div>
+      </div>
+      <div class="cart-dropdown__footer" id="cartFooter" style="display:none">
+        <div class="cart-total">
+          <span>Total:</span>
+          <strong id="cartTotal">$0.00</strong>
+        </div>
+        <button class="btn btn--gold btn--full">Proceder al Pago →</button>
+      </div>
+    </div>
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+  </header>
+
+
+  <!-- ================================================
+       HERO
+  ================================================= -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">✦ Nueva Colección 2025</p>
+      <h1 class="hero__title">
+        Camina con<br />
+        <span class="hero__title--accent">Estilo Propio</span>
+      </h1>
+      <p class="hero__subtitle">
+        Zapatos diseñados para quienes no siguen tendencias,<br class="hide-mobile" />
+        las crean. Calidad premium, confort garantizado.
+      </p>
+      <div class="hero__ctas">
+        <a href="#productos" class="btn btn--gold">
+          Ver Nueva Colección
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="#beneficios" class="btn btn--outline">Conocer más</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <strong>+2,500</strong>
+          <span>Clientes felices</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <strong>+120</strong>
+          <span>Modelos</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <strong>4.9★</strong>
+          <span>Valoración</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__image-wrapper">
+        <!-- Imagen principal del hero -->
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=80"
+          alt="Zapato deportivo premium"
+          class="hero__image"
+        />
+        <!-- Floating badge -->
+        <div class="hero__badge hero__badge--top">
+          <span>🔥</span> Más vendido
+        </div>
+        <div class="hero__badge hero__badge--bottom">
+          <span>⚡</span> Envío gratis hoy
+        </div>
+      </div>
+      <!-- Decorative circles -->
+      <div class="hero__circle hero__circle--1"></div>
+      <div class="hero__circle hero__circle--2"></div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       CATEGORÍAS (Pills)
+  ================================================= -->
+  <section class="categories">
+    <div class="container">
+      <div class="categories__pills">
+        <button class="pill pill--active" data-filter="todos">Todos</button>
+        <button class="pill" data-filter="hombre">Hombre</button>
+        <button class="pill" data-filter="mujer">Mujer</button>
+        <button class="pill" data-filter="deportivo">Deportivo</button>
+        <button class="pill" data-filter="casual">Casual</button>
+        <button class="pill" data-filter="oferta">🔥 Ofertas</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       PRODUCTOS
+  ================================================= -->
+  <section class="productos" id="productos">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Nuestro Catálogo</p>
+        <h2 class="section-title">Productos Destacados</h2>
+        <p class="section-subtitle">
+          Cada par cuenta una historia. Encuentra el tuyo.
+        </p>
+      </div>
+
+      <!-- Grid de productos -->
+      <div class="products-grid" id="productsGrid">
+
+        <!-- Producto 1 -->
+        <article class="product-card" data-category="hombre deportivo">
+          <div class="product-card__image-wrapper">
+            <span class="product-card__tag product-card__tag--new">Nuevo</span>
+            <img
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80"
+              alt="Nike Air Max Pro"
+              class="product-card__image"
+              loading="lazy"
+            />
+            <div class="product-card__overlay">
+              <button
+                class="btn btn--gold btn--sm add-to-cart"
+                data-id="1"
+                data-name="Nike Air Max Pro"
+                data-price="85.00"
+                data-img="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=60"
+              >
+                🛒 Añadir al carrito
+              </button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <p class="product-card__brand">Nike</p>
+            <h3 class="product-card__name">Air Max Pro</h3>
+            <div class="product-card__rating">
+              <div class="stars" data-rating="5">★★★★★</div>
+              <span class="product-card__reviews">(128)</span>
+            </div>
+            <div class="product-card__pricing">
+              <span class="product-card__price">$85.00</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="product-card" data-category="mujer casual">
+          <div class="product-card__image-wrapper">
+            <span class="product-card__tag product-card__tag--sale">-20%</span>
+            <img
+              src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&q=80"
+              alt="Adidas Cloud Mujer"
+              class="product-card__image"
+              loading="lazy"
+            />
+            <div class="product-card__overlay">
+              <button
+                class="btn btn--gold btn--sm add-to-cart"
+                data-id="2"
+                data-name="Adidas Cloud Mujer"
+                data-price="72.00"
+                data-img="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=100&q=60"
+              >
+                🛒 Añadir al carrito
+              </button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <p class="product-card__brand">Adidas</p>
+            <h3 class="product-card__name">Cloud Runner Mujer</h3>
+            <div class="product-card__rating">
+              <div class="stars" data-rating="4">★★★★☆</div>
+              <span class="product-card__reviews">(94)</span>
+            </div>
+            <div class="product-card__pricing">
+              <span class="product-card__price">$72.00</span>
+              <span class="product-card__price--old">$90.00</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="product-card" data-category="hombre casual">
+          <div class="product-card__image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=500&q=80"
+              alt="Puma Classic Hombre"
+              class="product-card__image"
+              loading="lazy"
+            />
+            <div class="product-card__overlay">
+              <button
+                class="btn btn--gold btn--sm add-to-cart"
+                data-id="3"
+                data-name="Puma Classic"
+                data-price="65.00"
+                data-img="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=100&q=60"
+              >
+                🛒 Añadir al carrito
+              </button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <p class="product-card__brand">Puma</p>
+            <h3 class="product-card__name">Classic Street</h3>
+            <div class="product-card__rating">
+              <div class="stars" data-rating="4">★★★★☆</div>
+              <span class="product-card__reviews">(57)</span>
+            </div>
+            <div class="product-card__pricing">
+              <span class="product-card__price">$65.00</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 4 -->
+        <article class="product-card" data-category="mujer oferta">
+          <div class="product-card__image-wrapper">
+            <span class="product-card__tag product-card__tag--sale">-30%</span>
+            <img
+              src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=500&q=80"
+              alt="New Balance Mujer"
+              class="product-card__image"
+              loading="lazy"
+            />
+            <div class="product-card__overlay">
+              <button
+                class="btn btn--gold btn--sm add-to-cart"
+                data-id="4"
+                data-name="New Balance 550"
+                data-price="78.00"
+                data-img="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=100&q=60"
+              >
+                🛒 Añadir al carrito
+              </button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <p class="product-card__brand">New Balance</p>
+            <h3 class="product-card__name">550 Classic</h3>
+            <div class="product-card__rating">
+              <div class="stars" data-rating="5">★★★★★</div>
+              <span class="product-card__reviews">(203)</span>
+            </div>
+            <div class="product-card__pricing">
+              <span class="product-card__price">$78.00</span>
+              <span class="product-card__price--old">$111.00</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 5 -->
+        <article class="product-card" data-category="hombre deportivo oferta">
+          <div class="product-card__image-wrapper">
+            <span class="product-card__tag product-card__tag--hot">🔥 Hot</span>
+            <img
+              src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&q=80"
+              alt="Jordan Retro"
+              class="product-card__image"
+              loading="lazy"
+            />
+            <div class="product-card__overlay">
+              <button
+                class="btn btn--gold btn--sm add-to-cart"
+                data-id="5"
+                data-name="Jordan Retro High"
+                data-price="120.00"
+                data-img="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=100&q=60"
+              >
+                🛒 Añadir al carrito
+              </button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <p class="product-card__brand">Jordan</p>
+            <h3 class="product-card__name">Retro High OG</h3>
+            <div class="product-card__rating">
+              <div class="stars" data-rating="5">★★★★★</div>
+              <span class="product-card__reviews">(341)</span>
+            </div>
+            <div class="product-card__pricing">
+              <span class="product-card__price">$120.00</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Producto 6 -->
+        <article class="product-card" data-category="mujer casual">
+          <div class="product-card__image-wrapper">
+            <span class="product-card__tag product-card__tag--new">Nuevo</span>
+            <img
+              src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80"
+              alt="Vans Old Skool"
+              class="product-card__image"
+              loading="lazy"
+            />
+            <div class="product-card__overlay">
+              <button
+                class="btn btn--gold btn--sm add-to-cart"
+                data-id="6"
+                data-name="Vans Old Skool"
+                data-price="58.00"
+                data-img="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=100&q=60"
+              >
+                🛒 Añadir al carrito
+              </button>
+            </div>
+          </div>
+          <div class="product-card__info">
+            <p class="product-card__brand">Vans</p>
+            <h3 class="product-card__name">Old Skool Platform</h3>
+            <div class="product-card__rating">
+              <div class="stars" data-rating="4">★★★★☆</div>
+              <span class="product-card__reviews">(88)</span>
+            </div>
+            <div class="product-card__pricing">
+              <span class="product-card__price">$58.00</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /products-grid -->
+
+      <div class="productos__cta">
+        <a href="#" class="btn btn--outline btn--lg">
+          Ver todos los productos →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       BANNER PROMOCIONAL
+  ================================================= -->
+  <section class="promo-banner">
+    <div class="promo-banner__content">
+      <p class="promo-banner__eyebrow">Oferta Limitada</p>
+      <h2 class="promo-banner__title">
+        Hasta <span>40% OFF</span><br />en colección de verano
+      </h2>
+      <p class="promo-banner__subtitle">
+        Solo por tiempo limitado. No dejes pasar esta oportunidad.
+      </p>
+      <a href="#productos" class="btn btn--white">
+        Ver Ofertas →
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       BENEFICIOS
+  ================================================= -->
+  <section class="beneficios" id="beneficios">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">¿Por qué elegirnos?</p>
+        <h2 class="section-title">Tu satisfacción, nuestra prioridad</h2>
+      </div>
+
+      <div class="beneficios__grid">
+
+        <div class="beneficio-card">
+          <div class="beneficio-card__icon">🚚</div>
+          <h3 class="beneficio-card__title">Envío Rápido</h3>
+          <p class="beneficio-card__text">
+            Entregamos en toda Venezuela en 24-72 horas a través de MRW, Zoom y Tealca.
+          </p>
+        </div>
+
+        <div class="beneficio-card">
+          <div class="beneficio-card__icon">🔒</div>
+          <h3 class="beneficio-card__title">Pagos 100% Seguros</h3>
+          <p class="beneficio-card__text">
+            Aceptamos Pago Móvil, Zelle, PayPal y Binance. Tus datos siempre protegidos.
+          </p>
+        </div>
+
+        <div class="beneficio-card">
+          <div class="beneficio-card__icon">🔄</div>
+          <h3 class="beneficio-card__title">Garantía de Cambio</h3>
+          <p class="beneficio-card__text">
+            ¿No te queda bien la talla? Cambia tu producto sin costo adicional en 15 días.
+          </p>
+        </div>
+
+        <div class="beneficio-card">
+          <div class="beneficio-card__icon">⭐</div>
+          <h3 class="beneficio-card__title">Calidad Garantizada</h3>
+          <p class="beneficio-card__text">
+            Solo trabajamos con marcas y materiales verificados. Cada par, revisado antes de enviarte.
+          </p>
+        </div>
+
+        <div class="beneficio-card">
+          <div class="beneficio-card__icon">💬</div>
+          <h3 class="beneficio-card__title">Atención 24/7</h3>
+          <p class="beneficio-card__text">
+            Nuestro equipo está disponible por WhatsApp e Instagram para resolver tus dudas.
+          </p>
+        </div>
+
+        <div class="beneficio-card">
+          <div class="beneficio-card__icon">🎁</div>
+          <h3 class="beneficio-card__title">Programa de Lealtad</h3>
+          <p class="beneficio-card__text">
+            Acumula puntos en cada compra y canjéalos por descuentos exclusivos.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       TESTIMONIOS
+  ================================================= -->
+  <section class="testimonios">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Lo que dicen nuestros clientes</p>
+        <h2 class="section-title">+2,500 clientes satisfechos</h2>
+      </div>
+
+      <div class="testimonios__grid">
+
+        <div class="testimonio-card">
+          <div class="testimonio-card__stars">★★★★★</div>
+          <p class="testimonio-card__text">
+            "Me llegaron en perfectas condiciones y en tiempo récord. La calidad supera lo que esperaba. ¡Ya hice mi segundo pedido!"
+          </p>
+          <div class="testimonio-card__author">
+            <div class="testimonio-card__avatar">MG</div>
+            <div>
+              <strong>María González</strong>
+              <span>Caracas, Venezuela</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonio-card">
+          <div class="testimonio-card__stars">★★★★★</div>
+          <p class="testimonio-card__text">
+            "Excelente atención por WhatsApp. Me ayudaron a elegir la talla correcta y el cambio fue facilísimo. 100% recomendado."
+          </p>
+          <div class="testimonio-card__author">
+            <div class="testimonio-card__avatar">CR</div>
+            <div>
+              <strong>Carlos Rodríguez</strong>
+              <span>Valencia, Venezuela</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonio-card">
+          <div class="testimonio-card__stars">★★★★★</div>
+          <p class="testimonio-card__text">
+            "Los mejores precios que encontré. Pagué por Zelle sin ningún problema y el seguimiento del envío fue impecable."
+          </p>
+          <div class="testimonio-card__author">
+            <div class="testimonio-card__avatar">AL</div>
+            <div>
+              <strong>Andrea López</strong>
+              <span>Maracaibo, Venezuela</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       NEWSLETTER
+  ================================================= -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter__card">
+        <div class="newsletter__content">
+          <span class="newsletter__emoji">📬</span>
+          <h2>Ofertas exclusivas en tu correo</h2>
+          <p>Suscríbete y recibe un <strong>10% de descuento</strong> en tu primera compra.</p>
+        </div>
+        <form class="newsletter__form" id="newsletterForm">
+          <input
+            type="email"
+            placeholder="tucorreo@email.com"
+            class="newsletter__input"
+            required
+            aria-label="Correo electrónico"
+          />
+          <button type="submit" class="btn btn--gold">
+            Quiero mi descuento →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       FOOTER
+  ================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="#" class="navbar__logo footer__logo">STEP<span>Z</span></a>
+          <p class="footer__tagline">
+            Calzado premium para quienes caminan con propósito. Estilo, confort y calidad en cada paso.
+          </p>
+          <!-- Social Links -->
+          <div class="footer__socials">
+            <a href="#" class="social-link social-link--ig" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link social-link--wa" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1                .369l-.004-.002-.042-.02a9.87 9.87 0 01-2.11-1.572 9.922 9.922 0 01-2.741-6.838c.002-5.46 4.455-9.911 9.918-9.911a9.865 9.865 0 017.014 2.907 9.865 9.865 0 012.905 7.014c-.003 5.46-4.455 9.911-9.917 9.911m8.437-18.348A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link social-link--tt" aria-label="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.79 1.54V6.82a4.85 4.85 0 01-1.02-.13z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Tienda</h4>
+          <ul class="footer__links">
+            <li><a href="#productos">Hombres</a></li>
+            <li><a href="#productos">Mujeres</a></li>
+            <li><a href="#productos">Colecciones</a></li>
+            <li><a href="#productos">Ofertas</a></li>
+            <li><a href="#productos">Nuevos ingresos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Ayuda</h4>
+          <ul class="footer__links">
+            <li><a href="#">Cómo comprar</a></li>
+            <li><a href="#">Seguimiento de pedido</a></li>
+            <li><a href="#">Cambios y devoluciones</a></li>
+            <li><a href="#">Guía de tallas</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Contacto</h4>
+          <ul class="footer__links footer__links--contact">
+            <li>
+              <span>📱</span>
+              <a href="https://wa.me/584001234567" target="_blank">
+                +58 400-123-4567
+              </a>
+            </li>
+            <li>
+              <span>📧</span>
+              <a href="mailto:hola@stepz.com">hola@stepz.com</a>
+            </li>
+            <li>
+              <span>📍</span>
+              <span>Caracas, Venezuela</span>
+            </li>
+            <li>
+              <span>🕐</span>
+              <span>Lun–Sáb: 9am – 7pm</span>
+            </li>
+          </ul>
+          <!-- WhatsApp CTA -->
+          <a
+            href="https://wa.me/584001234567"
+            class="btn btn--wa"
+            target="_blank"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.369l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+
+      </div><!-- /footer__grid -->
+
+      <!-- Footer Bottom -->
+      <div class="footer__bottom">
+        <p>© 2025 <strong>STEPZ</strong>. Todos los derechos reservados.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Política de privacidad</a>
+          <a href="#">Términos y condiciones</a>
+          <a href="#">Política de cookies</a>
+        </div>
+        <div class="footer__payments">
+          <span title="Pago Móvil">📱</span>
+          <span title="Zelle">💲</span>
+          <span title="PayPal">🅿️</span>
+          <span title="Binance">₿</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="https://wa.me/584001234567"
+    class="wa-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.369l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
