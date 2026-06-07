@@ -144,35 +144,87 @@ function removeFromCart(id) {
   showToast('🗑️ Producto eliminado');
 }
 
-// ── Botones "Añadir al carrito" ──────────────
-document.querySelectorAll('.add-to-cart').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const { id, name, price, img } = btn.dataset;
-    addToCart(id, name, price, img);
-    // Abrir carrito automáticamente
-    cartDropdown.classList.add('open');
-    cartOverlay.classList.add('active');
-  });
+// ── Botones "Añadir al carrito" (event delegation) ──
+document.getElementById('productsGrid').addEventListener('click', (e) => {
+  const btn = e.target.closest('.add-to-cart');
+  if (!btn) return;
+  e.preventDefault();
+  const { id, name, price, img } = btn.dataset;
+  addToCart(id, name, price, img);
+  cartDropdown.classList.add('open');
+  cartOverlay.classList.add('active');
 });
 
 // ── Filtro de categorías ─────────────────────
+function applyFilter(filter) {
+  document.querySelectorAll('.product-card').forEach(card => {
+    const cats = card.dataset.category || '';
+    const show = filter === 'todos' || cats.includes(filter);
+    card.classList.toggle('hidden', !show);
+  });
+}
+
 document.querySelectorAll('.pill').forEach(pill => {
   pill.addEventListener('click', () => {
-    // Actualizar pills activos
     document.querySelectorAll('.pill').forEach(p => p.classList.remove('pill--active'));
     pill.classList.add('pill--active');
-
-    const filter = pill.dataset.filter;
-    const cards  = document.querySelectorAll('.product-card');
-
-    cards.forEach(card => {
-      const cats = card.dataset.category || '';
-      const show = filter === 'todos' || cats.includes(filter);
-      card.classList.toggle('hidden', !show);
-    });
+    applyFilter(pill.dataset.filter);
   });
 });
+
+// ── Render de producto desde API ─────────────
+function renderProductCard(p) {
+  const tag = p.tag ? `<span class="product-card__tag product-card__tag--${p.tagType || 'new'}">${p.tag}</span>` : '';
+  const oldPrice = p.oldPrice ? `<span class="product-card__price--old">$${parseFloat(p.oldPrice).toFixed(2)}</span>` : '';
+  const rating = p.rating || 5;
+  const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+  const img = p.imageUrl || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80';
+
+  return `
+    <article class="product-card" data-category="${p.category || ''}">
+      <div class="product-card__image-wrapper">
+        ${tag}
+        <img src="${img}" alt="${p.name}" class="product-card__image" loading="lazy" />
+        <div class="product-card__overlay">
+          <button class="btn btn--gold btn--sm add-to-cart"
+            data-id="${p.id}" data-name="${p.name}"
+            data-price="${p.price}" data-img="${img}">
+            🛒 Añadir al carrito
+          </button>
+        </div>
+      </div>
+      <div class="product-card__info">
+        <p class="product-card__brand">${p.brand || ''}</p>
+        <h3 class="product-card__name">${p.name}</h3>
+        <div class="product-card__rating">
+          <div class="stars">${stars}</div>
+          <span class="product-card__reviews">(${p.reviews || 0})</span>
+        </div>
+        <div class="product-card__pricing">
+          <span class="product-card__price">$${parseFloat(p.price).toFixed(2)}</span>
+          ${oldPrice}
+        </div>
+      </div>
+    </article>`;
+}
+
+// ── Cargar productos desde la API ─────────────
+async function loadProducts() {
+  try {
+    const res = await fetch('/api/products');
+    if (!res.ok) return;
+    const items = await res.json();
+    if (!items || !items.length) return;
+
+    const grid = document.getElementById('productsGrid');
+    grid.innerHTML = items.map(renderProductCard).join('');
+
+    const activeFilter = document.querySelector('.pill--active')?.dataset?.filter || 'todos';
+    applyFilter(activeFilter);
+  } catch { /* keep static fallback */ }
+}
+
+loadProducts();
 
 // ── Toast ────────────────────────────────────
 let toastTimer;
